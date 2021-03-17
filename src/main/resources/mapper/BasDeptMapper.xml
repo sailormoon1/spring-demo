@@ -1,0 +1,2020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BasDeptMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.BasDept">
+    <constructor>
+      <idArg column="HOSNUM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="DEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NODECODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SHORTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PARENTID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISLEAF" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTCLASS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLINICALTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISACCDEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HERBSFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CNMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPAY" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="LOCATION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISDELETED" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCPY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCWB" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATERIALFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MRID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STORETYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISYBZLFREE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PHONENUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INSDEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPERATORIP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAEFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRINCIPAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TRACELOG" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INTEGRATE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_START" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_END" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSOCIATION_DEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOSNUM, DEPTCODE, NODECODE, DEPTNAME, SHORTNAME, PARENTID, ISLEAF, DEPTCLASS, CLINICALTYPE, 
+    ISACCDEPT, DEPTTYPE, CLCFLAG, EMCFLAG, INPFLAG, MATFLAG, HERBSFLAG, CNMFLAG, WMFLAG, 
+    PREPAY, LOCATION, ISDELETED, INPUTCPY, INPUTCWB, MATERIALFLAG, MRID, STORETYPE, ISYBZLFREE, 
+    PHONENUMBER, INSDEPTCODE, OPERATOR, OPERATETIME, OPERATORIP, PAEFLAG, PRINCIPAL, 
+    TRACELOG, UPDATE_TIME, INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, ASSOCIATION_DEPT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey">
+    delete from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT (HOSNUM, DEPTCODE, NODECODE, 
+      DEPTNAME, SHORTNAME, PARENTID, 
+      ISLEAF, DEPTCLASS, CLINICALTYPE, 
+      ISACCDEPT, DEPTTYPE, CLCFLAG, 
+      EMCFLAG, INPFLAG, MATFLAG, 
+      HERBSFLAG, CNMFLAG, WMFLAG, 
+      PREPAY, LOCATION, ISDELETED, 
+      INPUTCPY, INPUTCWB, MATERIALFLAG, 
+      MRID, STORETYPE, ISYBZLFREE, 
+      PHONENUMBER, INSDEPTCODE, OPERATOR, 
+      OPERATETIME, OPERATORIP, PAEFLAG, 
+      PRINCIPAL, TRACELOG, UPDATE_TIME, 
+      INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, 
+      ASSOCIATION_DEPT)
+    values (#{hosnum,jdbcType=VARCHAR}, #{deptcode,jdbcType=VARCHAR}, #{nodecode,jdbcType=VARCHAR}, 
+      #{deptname,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{isleaf,jdbcType=VARCHAR}, #{deptclass,jdbcType=VARCHAR}, #{clinicaltype,jdbcType=VARCHAR}, 
+      #{isaccdept,jdbcType=VARCHAR}, #{depttype,jdbcType=VARCHAR}, #{clcflag,jdbcType=VARCHAR}, 
+      #{emcflag,jdbcType=VARCHAR}, #{inpflag,jdbcType=VARCHAR}, #{matflag,jdbcType=VARCHAR}, 
+      #{herbsflag,jdbcType=VARCHAR}, #{cnmflag,jdbcType=VARCHAR}, #{wmflag,jdbcType=VARCHAR}, 
+      #{prepay,jdbcType=DECIMAL}, #{location,jdbcType=VARCHAR}, #{isdeleted,jdbcType=VARCHAR}, 
+      #{inputcpy,jdbcType=VARCHAR}, #{inputcwb,jdbcType=VARCHAR}, #{materialflag,jdbcType=VARCHAR}, 
+      #{mrid,jdbcType=VARCHAR}, #{storetype,jdbcType=VARCHAR}, #{isybzlfree,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{insdeptcode,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operatetime,jdbcType=TIMESTAMP}, #{operatorip,jdbcType=VARCHAR}, #{paeflag,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{tracelog,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{integrateId,jdbcType=VARCHAR}, #{servicetimeStart,jdbcType=VARCHAR}, #{servicetimeEnd,jdbcType=VARCHAR}, 
+      #{associationDept,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        HOSNUM,
+      </if>
+      <if test="deptcode != null">
+        DEPTCODE,
+      </if>
+      <if test="nodecode != null">
+        NODECODE,
+      </if>
+      <if test="deptname != null">
+        DEPTNAME,
+      </if>
+      <if test="shortname != null">
+        SHORTNAME,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="isleaf != null">
+        ISLEAF,
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS,
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE,
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT,
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE,
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG,
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG,
+      </if>
+      <if test="inpflag != null">
+        INPFLAG,
+      </if>
+      <if test="matflag != null">
+        MATFLAG,
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG,
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG,
+      </if>
+      <if test="wmflag != null">
+        WMFLAG,
+      </if>
+      <if test="prepay != null">
+        PREPAY,
+      </if>
+      <if test="location != null">
+        LOCATION,
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED,
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY,
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB,
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG,
+      </if>
+      <if test="mrid != null">
+        MRID,
+      </if>
+      <if test="storetype != null">
+        STORETYPE,
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE,
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER,
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE,
+      </if>
+      <if test="operator != null">
+        OPERATOR,
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME,
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP,
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG,
+      </if>
+      <if test="principal != null">
+        PRINCIPAL,
+      </if>
+      <if test="tracelog != null">
+        TRACELOG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID,
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START,
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END,
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        #{hosnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptcode != null">
+        #{deptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodecode != null">
+        #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    <set>
+      <if test="nodecode != null">
+        NODECODE = #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        PARENTID = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        MATFLAG = #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        PREPAY = #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        LOCATION = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        MRID = #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        STORETYPE = #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    set NODECODE = #{nodecode,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      PARENTID = #{parentid,jdbcType=VARCHAR},
+      ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      MATFLAG = #{matflag,jdbcType=VARCHAR},
+      HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      PREPAY = #{prepay,jdbcType=DECIMAL},
+      LOCATION = #{location,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      MRID = #{mrid,jdbcType=VARCHAR},
+      STORETYPE = #{storetype,jdbcType=VARCHAR},
+      ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR}
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.BasDept">
+    <constructor>
+      <idArg column="HOSNUM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="DEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NODECODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SHORTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PARENTID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISLEAF" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTCLASS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLINICALTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISACCDEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HERBSFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CNMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPAY" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="LOCATION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISDELETED" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCPY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCWB" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATERIALFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MRID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STORETYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISYBZLFREE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PHONENUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INSDEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPERATORIP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAEFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRINCIPAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TRACELOG" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INTEGRATE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_START" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_END" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSOCIATION_DEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOSNUM, DEPTCODE, NODECODE, DEPTNAME, SHORTNAME, PARENTID, ISLEAF, DEPTCLASS, CLINICALTYPE, 
+    ISACCDEPT, DEPTTYPE, CLCFLAG, EMCFLAG, INPFLAG, MATFLAG, HERBSFLAG, CNMFLAG, WMFLAG, 
+    PREPAY, LOCATION, ISDELETED, INPUTCPY, INPUTCWB, MATERIALFLAG, MRID, STORETYPE, ISYBZLFREE, 
+    PHONENUMBER, INSDEPTCODE, OPERATOR, OPERATETIME, OPERATORIP, PAEFLAG, PRINCIPAL, 
+    TRACELOG, UPDATE_TIME, INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, ASSOCIATION_DEPT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey">
+    delete from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT (HOSNUM, DEPTCODE, NODECODE, 
+      DEPTNAME, SHORTNAME, PARENTID, 
+      ISLEAF, DEPTCLASS, CLINICALTYPE, 
+      ISACCDEPT, DEPTTYPE, CLCFLAG, 
+      EMCFLAG, INPFLAG, MATFLAG, 
+      HERBSFLAG, CNMFLAG, WMFLAG, 
+      PREPAY, LOCATION, ISDELETED, 
+      INPUTCPY, INPUTCWB, MATERIALFLAG, 
+      MRID, STORETYPE, ISYBZLFREE, 
+      PHONENUMBER, INSDEPTCODE, OPERATOR, 
+      OPERATETIME, OPERATORIP, PAEFLAG, 
+      PRINCIPAL, TRACELOG, UPDATE_TIME, 
+      INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, 
+      ASSOCIATION_DEPT)
+    values (#{hosnum,jdbcType=VARCHAR}, #{deptcode,jdbcType=VARCHAR}, #{nodecode,jdbcType=VARCHAR}, 
+      #{deptname,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{isleaf,jdbcType=VARCHAR}, #{deptclass,jdbcType=VARCHAR}, #{clinicaltype,jdbcType=VARCHAR}, 
+      #{isaccdept,jdbcType=VARCHAR}, #{depttype,jdbcType=VARCHAR}, #{clcflag,jdbcType=VARCHAR}, 
+      #{emcflag,jdbcType=VARCHAR}, #{inpflag,jdbcType=VARCHAR}, #{matflag,jdbcType=VARCHAR}, 
+      #{herbsflag,jdbcType=VARCHAR}, #{cnmflag,jdbcType=VARCHAR}, #{wmflag,jdbcType=VARCHAR}, 
+      #{prepay,jdbcType=DECIMAL}, #{location,jdbcType=VARCHAR}, #{isdeleted,jdbcType=VARCHAR}, 
+      #{inputcpy,jdbcType=VARCHAR}, #{inputcwb,jdbcType=VARCHAR}, #{materialflag,jdbcType=VARCHAR}, 
+      #{mrid,jdbcType=VARCHAR}, #{storetype,jdbcType=VARCHAR}, #{isybzlfree,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{insdeptcode,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operatetime,jdbcType=TIMESTAMP}, #{operatorip,jdbcType=VARCHAR}, #{paeflag,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{tracelog,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{integrateId,jdbcType=VARCHAR}, #{servicetimeStart,jdbcType=VARCHAR}, #{servicetimeEnd,jdbcType=VARCHAR}, 
+      #{associationDept,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        HOSNUM,
+      </if>
+      <if test="deptcode != null">
+        DEPTCODE,
+      </if>
+      <if test="nodecode != null">
+        NODECODE,
+      </if>
+      <if test="deptname != null">
+        DEPTNAME,
+      </if>
+      <if test="shortname != null">
+        SHORTNAME,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="isleaf != null">
+        ISLEAF,
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS,
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE,
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT,
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE,
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG,
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG,
+      </if>
+      <if test="inpflag != null">
+        INPFLAG,
+      </if>
+      <if test="matflag != null">
+        MATFLAG,
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG,
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG,
+      </if>
+      <if test="wmflag != null">
+        WMFLAG,
+      </if>
+      <if test="prepay != null">
+        PREPAY,
+      </if>
+      <if test="location != null">
+        LOCATION,
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED,
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY,
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB,
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG,
+      </if>
+      <if test="mrid != null">
+        MRID,
+      </if>
+      <if test="storetype != null">
+        STORETYPE,
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE,
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER,
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE,
+      </if>
+      <if test="operator != null">
+        OPERATOR,
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME,
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP,
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG,
+      </if>
+      <if test="principal != null">
+        PRINCIPAL,
+      </if>
+      <if test="tracelog != null">
+        TRACELOG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID,
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START,
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END,
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        #{hosnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptcode != null">
+        #{deptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodecode != null">
+        #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    <set>
+      <if test="nodecode != null">
+        NODECODE = #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        PARENTID = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        MATFLAG = #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        PREPAY = #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        LOCATION = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        MRID = #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        STORETYPE = #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    set NODECODE = #{nodecode,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      PARENTID = #{parentid,jdbcType=VARCHAR},
+      ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      MATFLAG = #{matflag,jdbcType=VARCHAR},
+      HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      PREPAY = #{prepay,jdbcType=DECIMAL},
+      LOCATION = #{location,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      MRID = #{mrid,jdbcType=VARCHAR},
+      STORETYPE = #{storetype,jdbcType=VARCHAR},
+      ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR}
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.BasDept">
+    <constructor>
+      <idArg column="HOSNUM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="DEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NODECODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SHORTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PARENTID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISLEAF" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTCLASS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLINICALTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISACCDEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HERBSFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CNMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPAY" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="LOCATION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISDELETED" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCPY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCWB" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATERIALFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MRID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STORETYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISYBZLFREE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PHONENUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INSDEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPERATORIP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAEFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRINCIPAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TRACELOG" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INTEGRATE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_START" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_END" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSOCIATION_DEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOSNUM, DEPTCODE, NODECODE, DEPTNAME, SHORTNAME, PARENTID, ISLEAF, DEPTCLASS, CLINICALTYPE, 
+    ISACCDEPT, DEPTTYPE, CLCFLAG, EMCFLAG, INPFLAG, MATFLAG, HERBSFLAG, CNMFLAG, WMFLAG, 
+    PREPAY, LOCATION, ISDELETED, INPUTCPY, INPUTCWB, MATERIALFLAG, MRID, STORETYPE, ISYBZLFREE, 
+    PHONENUMBER, INSDEPTCODE, OPERATOR, OPERATETIME, OPERATORIP, PAEFLAG, PRINCIPAL, 
+    TRACELOG, UPDATE_TIME, INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, ASSOCIATION_DEPT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey">
+    delete from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT (HOSNUM, DEPTCODE, NODECODE, 
+      DEPTNAME, SHORTNAME, PARENTID, 
+      ISLEAF, DEPTCLASS, CLINICALTYPE, 
+      ISACCDEPT, DEPTTYPE, CLCFLAG, 
+      EMCFLAG, INPFLAG, MATFLAG, 
+      HERBSFLAG, CNMFLAG, WMFLAG, 
+      PREPAY, LOCATION, ISDELETED, 
+      INPUTCPY, INPUTCWB, MATERIALFLAG, 
+      MRID, STORETYPE, ISYBZLFREE, 
+      PHONENUMBER, INSDEPTCODE, OPERATOR, 
+      OPERATETIME, OPERATORIP, PAEFLAG, 
+      PRINCIPAL, TRACELOG, UPDATE_TIME, 
+      INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, 
+      ASSOCIATION_DEPT)
+    values (#{hosnum,jdbcType=VARCHAR}, #{deptcode,jdbcType=VARCHAR}, #{nodecode,jdbcType=VARCHAR}, 
+      #{deptname,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{isleaf,jdbcType=VARCHAR}, #{deptclass,jdbcType=VARCHAR}, #{clinicaltype,jdbcType=VARCHAR}, 
+      #{isaccdept,jdbcType=VARCHAR}, #{depttype,jdbcType=VARCHAR}, #{clcflag,jdbcType=VARCHAR}, 
+      #{emcflag,jdbcType=VARCHAR}, #{inpflag,jdbcType=VARCHAR}, #{matflag,jdbcType=VARCHAR}, 
+      #{herbsflag,jdbcType=VARCHAR}, #{cnmflag,jdbcType=VARCHAR}, #{wmflag,jdbcType=VARCHAR}, 
+      #{prepay,jdbcType=DECIMAL}, #{location,jdbcType=VARCHAR}, #{isdeleted,jdbcType=VARCHAR}, 
+      #{inputcpy,jdbcType=VARCHAR}, #{inputcwb,jdbcType=VARCHAR}, #{materialflag,jdbcType=VARCHAR}, 
+      #{mrid,jdbcType=VARCHAR}, #{storetype,jdbcType=VARCHAR}, #{isybzlfree,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{insdeptcode,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operatetime,jdbcType=TIMESTAMP}, #{operatorip,jdbcType=VARCHAR}, #{paeflag,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{tracelog,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{integrateId,jdbcType=VARCHAR}, #{servicetimeStart,jdbcType=VARCHAR}, #{servicetimeEnd,jdbcType=VARCHAR}, 
+      #{associationDept,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        HOSNUM,
+      </if>
+      <if test="deptcode != null">
+        DEPTCODE,
+      </if>
+      <if test="nodecode != null">
+        NODECODE,
+      </if>
+      <if test="deptname != null">
+        DEPTNAME,
+      </if>
+      <if test="shortname != null">
+        SHORTNAME,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="isleaf != null">
+        ISLEAF,
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS,
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE,
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT,
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE,
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG,
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG,
+      </if>
+      <if test="inpflag != null">
+        INPFLAG,
+      </if>
+      <if test="matflag != null">
+        MATFLAG,
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG,
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG,
+      </if>
+      <if test="wmflag != null">
+        WMFLAG,
+      </if>
+      <if test="prepay != null">
+        PREPAY,
+      </if>
+      <if test="location != null">
+        LOCATION,
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED,
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY,
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB,
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG,
+      </if>
+      <if test="mrid != null">
+        MRID,
+      </if>
+      <if test="storetype != null">
+        STORETYPE,
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE,
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER,
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE,
+      </if>
+      <if test="operator != null">
+        OPERATOR,
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME,
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP,
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG,
+      </if>
+      <if test="principal != null">
+        PRINCIPAL,
+      </if>
+      <if test="tracelog != null">
+        TRACELOG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID,
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START,
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END,
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        #{hosnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptcode != null">
+        #{deptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodecode != null">
+        #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    <set>
+      <if test="nodecode != null">
+        NODECODE = #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        PARENTID = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        MATFLAG = #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        PREPAY = #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        LOCATION = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        MRID = #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        STORETYPE = #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    set NODECODE = #{nodecode,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      PARENTID = #{parentid,jdbcType=VARCHAR},
+      ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      MATFLAG = #{matflag,jdbcType=VARCHAR},
+      HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      PREPAY = #{prepay,jdbcType=DECIMAL},
+      LOCATION = #{location,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      MRID = #{mrid,jdbcType=VARCHAR},
+      STORETYPE = #{storetype,jdbcType=VARCHAR},
+      ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR}
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.BasDept">
+    <constructor>
+      <idArg column="HOSNUM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <idArg column="DEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NODECODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SHORTNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PARENTID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISLEAF" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTCLASS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLINICALTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISACCDEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEPTTYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CLCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMCFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="HERBSFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CNMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WMFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREPAY" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="LOCATION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISDELETED" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCPY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INPUTCWB" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MATERIALFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MRID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STORETYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ISYBZLFREE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PHONENUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INSDEPTCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OPERATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="OPERATORIP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAEFLAG" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRINCIPAL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TRACELOG" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="INTEGRATE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_START" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SERVICETIME_END" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ASSOCIATION_DEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    HOSNUM, DEPTCODE, NODECODE, DEPTNAME, SHORTNAME, PARENTID, ISLEAF, DEPTCLASS, CLINICALTYPE, 
+    ISACCDEPT, DEPTTYPE, CLCFLAG, EMCFLAG, INPFLAG, MATFLAG, HERBSFLAG, CNMFLAG, WMFLAG, 
+    PREPAY, LOCATION, ISDELETED, INPUTCPY, INPUTCWB, MATERIALFLAG, MRID, STORETYPE, ISYBZLFREE, 
+    PHONENUMBER, INSDEPTCODE, OPERATOR, OPERATETIME, OPERATORIP, PAEFLAG, PRINCIPAL, 
+    TRACELOG, UPDATE_TIME, INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, ASSOCIATION_DEPT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.demo.entity.BasDeptKey">
+    delete from BAS_DEPT
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT (HOSNUM, DEPTCODE, NODECODE, 
+      DEPTNAME, SHORTNAME, PARENTID, 
+      ISLEAF, DEPTCLASS, CLINICALTYPE, 
+      ISACCDEPT, DEPTTYPE, CLCFLAG, 
+      EMCFLAG, INPFLAG, MATFLAG, 
+      HERBSFLAG, CNMFLAG, WMFLAG, 
+      PREPAY, LOCATION, ISDELETED, 
+      INPUTCPY, INPUTCWB, MATERIALFLAG, 
+      MRID, STORETYPE, ISYBZLFREE, 
+      PHONENUMBER, INSDEPTCODE, OPERATOR, 
+      OPERATETIME, OPERATORIP, PAEFLAG, 
+      PRINCIPAL, TRACELOG, UPDATE_TIME, 
+      INTEGRATE_ID, SERVICETIME_START, SERVICETIME_END, 
+      ASSOCIATION_DEPT)
+    values (#{hosnum,jdbcType=VARCHAR}, #{deptcode,jdbcType=VARCHAR}, #{nodecode,jdbcType=VARCHAR}, 
+      #{deptname,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{isleaf,jdbcType=VARCHAR}, #{deptclass,jdbcType=VARCHAR}, #{clinicaltype,jdbcType=VARCHAR}, 
+      #{isaccdept,jdbcType=VARCHAR}, #{depttype,jdbcType=VARCHAR}, #{clcflag,jdbcType=VARCHAR}, 
+      #{emcflag,jdbcType=VARCHAR}, #{inpflag,jdbcType=VARCHAR}, #{matflag,jdbcType=VARCHAR}, 
+      #{herbsflag,jdbcType=VARCHAR}, #{cnmflag,jdbcType=VARCHAR}, #{wmflag,jdbcType=VARCHAR}, 
+      #{prepay,jdbcType=DECIMAL}, #{location,jdbcType=VARCHAR}, #{isdeleted,jdbcType=VARCHAR}, 
+      #{inputcpy,jdbcType=VARCHAR}, #{inputcwb,jdbcType=VARCHAR}, #{materialflag,jdbcType=VARCHAR}, 
+      #{mrid,jdbcType=VARCHAR}, #{storetype,jdbcType=VARCHAR}, #{isybzlfree,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{insdeptcode,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operatetime,jdbcType=TIMESTAMP}, #{operatorip,jdbcType=VARCHAR}, #{paeflag,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{tracelog,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{integrateId,jdbcType=VARCHAR}, #{servicetimeStart,jdbcType=VARCHAR}, #{servicetimeEnd,jdbcType=VARCHAR}, 
+      #{associationDept,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.BasDept">
+    insert into BAS_DEPT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        HOSNUM,
+      </if>
+      <if test="deptcode != null">
+        DEPTCODE,
+      </if>
+      <if test="nodecode != null">
+        NODECODE,
+      </if>
+      <if test="deptname != null">
+        DEPTNAME,
+      </if>
+      <if test="shortname != null">
+        SHORTNAME,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="isleaf != null">
+        ISLEAF,
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS,
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE,
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT,
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE,
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG,
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG,
+      </if>
+      <if test="inpflag != null">
+        INPFLAG,
+      </if>
+      <if test="matflag != null">
+        MATFLAG,
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG,
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG,
+      </if>
+      <if test="wmflag != null">
+        WMFLAG,
+      </if>
+      <if test="prepay != null">
+        PREPAY,
+      </if>
+      <if test="location != null">
+        LOCATION,
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED,
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY,
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB,
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG,
+      </if>
+      <if test="mrid != null">
+        MRID,
+      </if>
+      <if test="storetype != null">
+        STORETYPE,
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE,
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER,
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE,
+      </if>
+      <if test="operator != null">
+        OPERATOR,
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME,
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP,
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG,
+      </if>
+      <if test="principal != null">
+        PRINCIPAL,
+      </if>
+      <if test="tracelog != null">
+        TRACELOG,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID,
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START,
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END,
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hosnum != null">
+        #{hosnum,jdbcType=VARCHAR},
+      </if>
+      <if test="deptcode != null">
+        #{deptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodecode != null">
+        #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    <set>
+      <if test="nodecode != null">
+        NODECODE = #{nodecode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptname != null">
+        DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        PARENTID = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="isleaf != null">
+        ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      </if>
+      <if test="deptclass != null">
+        DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      </if>
+      <if test="clinicaltype != null">
+        CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="isaccdept != null">
+        ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      </if>
+      <if test="depttype != null">
+        DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      </if>
+      <if test="clcflag != null">
+        CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="emcflag != null">
+        EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      </if>
+      <if test="inpflag != null">
+        INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      </if>
+      <if test="matflag != null">
+        MATFLAG = #{matflag,jdbcType=VARCHAR},
+      </if>
+      <if test="herbsflag != null">
+        HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      </if>
+      <if test="cnmflag != null">
+        CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="wmflag != null">
+        WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      </if>
+      <if test="prepay != null">
+        PREPAY = #{prepay,jdbcType=DECIMAL},
+      </if>
+      <if test="location != null">
+        LOCATION = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcpy != null">
+        INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      </if>
+      <if test="inputcwb != null">
+        INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      </if>
+      <if test="materialflag != null">
+        MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      </if>
+      <if test="mrid != null">
+        MRID = #{mrid,jdbcType=VARCHAR},
+      </if>
+      <if test="storetype != null">
+        STORETYPE = #{storetype,jdbcType=VARCHAR},
+      </if>
+      <if test="isybzlfree != null">
+        ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insdeptcode != null">
+        INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetime != null">
+        OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorip != null">
+        OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      </if>
+      <if test="paeflag != null">
+        PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="tracelog != null">
+        TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="integrateId != null">
+        INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeStart != null">
+        SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetimeEnd != null">
+        SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="associationDept != null">
+        ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.BasDept">
+    update BAS_DEPT
+    set NODECODE = #{nodecode,jdbcType=VARCHAR},
+      DEPTNAME = #{deptname,jdbcType=VARCHAR},
+      SHORTNAME = #{shortname,jdbcType=VARCHAR},
+      PARENTID = #{parentid,jdbcType=VARCHAR},
+      ISLEAF = #{isleaf,jdbcType=VARCHAR},
+      DEPTCLASS = #{deptclass,jdbcType=VARCHAR},
+      CLINICALTYPE = #{clinicaltype,jdbcType=VARCHAR},
+      ISACCDEPT = #{isaccdept,jdbcType=VARCHAR},
+      DEPTTYPE = #{depttype,jdbcType=VARCHAR},
+      CLCFLAG = #{clcflag,jdbcType=VARCHAR},
+      EMCFLAG = #{emcflag,jdbcType=VARCHAR},
+      INPFLAG = #{inpflag,jdbcType=VARCHAR},
+      MATFLAG = #{matflag,jdbcType=VARCHAR},
+      HERBSFLAG = #{herbsflag,jdbcType=VARCHAR},
+      CNMFLAG = #{cnmflag,jdbcType=VARCHAR},
+      WMFLAG = #{wmflag,jdbcType=VARCHAR},
+      PREPAY = #{prepay,jdbcType=DECIMAL},
+      LOCATION = #{location,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=VARCHAR},
+      INPUTCPY = #{inputcpy,jdbcType=VARCHAR},
+      INPUTCWB = #{inputcwb,jdbcType=VARCHAR},
+      MATERIALFLAG = #{materialflag,jdbcType=VARCHAR},
+      MRID = #{mrid,jdbcType=VARCHAR},
+      STORETYPE = #{storetype,jdbcType=VARCHAR},
+      ISYBZLFREE = #{isybzlfree,jdbcType=VARCHAR},
+      PHONENUMBER = #{phonenumber,jdbcType=VARCHAR},
+      INSDEPTCODE = #{insdeptcode,jdbcType=VARCHAR},
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      OPERATETIME = #{operatetime,jdbcType=TIMESTAMP},
+      OPERATORIP = #{operatorip,jdbcType=VARCHAR},
+      PAEFLAG = #{paeflag,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      TRACELOG = #{tracelog,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      INTEGRATE_ID = #{integrateId,jdbcType=VARCHAR},
+      SERVICETIME_START = #{servicetimeStart,jdbcType=VARCHAR},
+      SERVICETIME_END = #{servicetimeEnd,jdbcType=VARCHAR},
+      ASSOCIATION_DEPT = #{associationDept,jdbcType=VARCHAR}
+    where HOSNUM = #{hosnum,jdbcType=VARCHAR}
+      and DEPTCODE = #{deptcode,jdbcType=VARCHAR}
+  </update>
+</mapper>
